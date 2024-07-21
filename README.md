@@ -1,4 +1,4 @@
-# 2-Dice-Pig
+# Two-Dice-Pig
 A simple game of (almost) pure chance. Originally made in 2021 for a Computer Science class.
 
 ## Info
