@@ -38,7 +38,7 @@ class Main {
     } // end of while loop
 
     while (numRealPlayers > 1) { // ask for number of computer players
-      print(Text.CLEAR + "Number of real players: " + numRealPlayers + "\n" + "Number of computer players (0 for none): ");
+      print(Text.CLEAR + "Number of human players: " + numRealPlayers + "\n" + "Number of computer players (0 for none): ");
       String input = scan.nextLine().trim();
       try {
         numComPlayers = Integer.parseInt(input);
@@ -59,7 +59,7 @@ class Main {
     while (true) {
       print(Text.CLEAR);
       if (numRealPlayers > 15) {
-        Text.warning("There are " + numRealPlayers + " players to name. It's reccomended NOT to use custom names.\n");
+        Text.warning("There are " + numRealPlayers + " players to name. It's recommended NOT to use custom names.\n");
       }
       print("Use custom names? (y/n): ");
       String input = scan.nextLine().toLowerCase().trim();
@@ -116,6 +116,7 @@ class Main {
         println(playerDisplay);
 
         if (!cPlayer.isComputer()) {
+          println("\nTotal Score: " + (cPlayer.getTurnScore() + cPlayer.getStoredScore())); // TurnScore should be 0
           waitToContinue("\nPress Enter to roll");
         }
         // Dice roll loop
@@ -209,8 +210,8 @@ class Main {
       
     } // end of game loop
 
-    println(Text.WHITE_UNDERLINED + "Results" + Text.RESET);
-    println(Text.CLEAR + winner.getName() + " won the game on round " + round + "!");
+    println(Text.CLEAR + Text.WHITE_UNDERLINED + "Results" + Text.RESET);
+    println(winner.getName() + " won the game on round " + round + "!");
     
     
   } // END OF MAIN METHOD
