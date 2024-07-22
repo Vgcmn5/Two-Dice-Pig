@@ -31,6 +31,8 @@ class Main {
       } catch (Exception e) {
         if (numRealPlayers > maxRealPlayers) {
           Text.showError("Too many players\n", 1000);
+        } else if (numRealPlayers < 1) {
+          Text.showError("There must be at least one human player\n", 1000);
         } else if (!input.isEmpty()) {
           Text.showError("Invalid number\n", 1000);
         }
@@ -55,7 +57,7 @@ class Main {
 
     Player[] players = new Player[numRealPlayers + numComPlayers];
     
-    boolean useCustomNames = false;
+    boolean useCustomNames;
     while (true) {
       print(Text.CLEAR);
       if (numRealPlayers > 15) {
@@ -92,9 +94,9 @@ class Main {
     
     String playerNames = "";
     if (players.length <= 4) {
-      for (int i=0; i < players.length; i++) {
-        playerNames += ("  " + players[i].getName());
-      }
+        for (Player player : players) {
+            playerNames += ("  " + player.getName());
+        }
       playerNames += " ";
     }
 
@@ -106,7 +108,7 @@ class Main {
       for (int i=0; i < players.length && !gameOver(players,pointsGoal); i++) { 
         Player cPlayer = players[i];
 
-        String playerDisplay = "";
+        String playerDisplay;
         if (players.length <= 4) {
           playerDisplay = playerNames.replace(" "+cPlayer.getName()+" ", Text.BLACK+Text.WHITE_BACKGROUND+" "+cPlayer.getName()+" "+Text.RESET).replace("Player "+(i+1)+Text.PURPLE+" (COM)", "Player "+(i+1)+Text.PURPLE+Text.WHITE_BACKGROUND+" (COM)");
         } else {
