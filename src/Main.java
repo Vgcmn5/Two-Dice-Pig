@@ -105,7 +105,6 @@ class Main {
       // Player turn loop
       for (int i=0; i < players.length && !gameOver(players,pointsGoal); i++) { 
         Player cPlayer = players[i];
-        print(Text.CLEAR + Text.WHITE_UNDERLINED + "Round " + round + Text.RESET);
 
         String playerDisplay = "";
         if (players.length <= 4) {
@@ -113,10 +112,10 @@ class Main {
         } else {
           playerDisplay = ("  "+Text.BLACK+Text.WHITE_BACKGROUND+" "+cPlayer.getName()+" "+Text.RESET).replace("Player "+(i+1)+Text.PURPLE+" (COM)", "Player "+(i+1)+Text.PURPLE+Text.WHITE_BACKGROUND+" (COM)");
         }
-        println(playerDisplay);
 
         if (!cPlayer.isComputer()) {
-          println("\nTotal Score: " + (cPlayer.getTurnScore() + cPlayer.getStoredScore())); // TurnScore should be 0
+          print(Text.CLEAR + Text.WHITE_UNDERLINED + "Round " + round + Text.RESET);
+          println(playerDisplay + "\n\nTotal Score: " + (cPlayer.getTurnScore() + cPlayer.getStoredScore())); // TurnScore should be 0
           waitToContinue("\nPress Enter to roll");
         }
         // Dice roll loop
