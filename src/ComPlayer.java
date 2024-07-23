@@ -18,7 +18,7 @@ public class ComPlayer extends Player {
     this.isComputer = true;
   }
 
-  public boolean rollAgain() { // decide wether to roll again or end turn
+  public boolean rollAgain() { // decide whether to roll again or end turn
 
     // if the computer decides to end its turn
     if (Math.random() > this.rollProbability) {return false;}
